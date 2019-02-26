@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+</head>
+
+<style>
+
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+.center1{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.center2{
+	margin-top:80px;
+	margin-left:300px;
+}
+
+p.ex1 {
+  margin-left: 400px;
+  font-size: 350%;
+
+}
+
+input[type=text],[type=password]{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border-radius:10px;
+  background:#F8F4F6 ;
+}
+
+input[type=submit] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 25px 0;
+  box-sizing: 25px;
+  border-radius:50px;
+  background:#ACA7AA ;
+  margin-left:41px;
+}
+
+form {
+  display: inline; 
+}
+
+</style>
+
+<body>
+
+	<div class="center1">
+		<img src="Images/grizzly.jpg" alt="GrizzlyBear" height="300">
+	</div>
+	
+	<p class="ex1">GRIZZLY STORE</p>
+	
+	<div class="center2">
+	
+	<form action="Login" method="get">
+		<strong><input type="text" placeholder="Username" name="userName" required/></strong><br>
+		<input type="password" placeholder="Password" name="passWord" required/><br>
+		<input type="submit" value="Login"/>
+	
+	</form>
+	
+			
+	<form action="Signup" method="get">
+		<input type="submit" value="Signup"/>
+	</form>
+	
+
+	</div>
+	
+		<p style="margin-left:350px;"><a class="underlineHover" href="#">Forgot Password ?</a>
+
+	
+</body>
+</html>
