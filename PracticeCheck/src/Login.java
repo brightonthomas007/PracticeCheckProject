@@ -15,9 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Login")  
 public class Login extends HttpServlet {  
   
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)  

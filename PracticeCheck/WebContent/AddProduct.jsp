@@ -22,13 +22,17 @@
   cursor: pointer;
 }
 .button5 {background-color: #cccccc;}
-.card {
+
+.abc {
   box-shadow: 0 4px 8px 0 rgba(1, 1, 1, 1);
   max-width: 300px;
   margin: 22px;
   text-align: center;
   font-family: arial;
+  height:50vh;
+ 	word-wrap:break-word;
 }
+
 .title {
   color: grey;
   font-size: 18px;
@@ -61,14 +65,9 @@ button:hover, a:hover {
 
 <nav class="navbar navbar-default" role="navigation">
 
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">GRIZZLY STORE</a>
+    <div  style="float:left !important;">
+       
+        <a class="navbar-brand" href="#" >GRIZZLY STORE</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -96,8 +95,8 @@ button:hover, a:hover {
          <div>
            <ul class="nav navbar-nav pull-right">
                <form action="logout" method="get">
-               <button class="button button5">Logout</button>
-             </form>
+              		 <button class="button button5">Logout</button>
+             	</form>
            </ul>
           </div>
 
@@ -107,11 +106,11 @@ button:hover, a:hover {
 
 
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4">
-      <div class="card">
-        <img src="/Users/shashidharreddy/img_avatar.png" alt="John" style="width:100%">
+    <div class="col-md-2 card">
+      <div class="" >
+        <img src="" alt="John" style="width:100%">
         <h1><%out.print(name); %> </h1>
         
       
@@ -119,7 +118,7 @@ button:hover, a:hover {
       </div>
     </div>
     
-    <div class="col-sm-4" >
+    <div class="col-md-7 card abc" >
       <ul class="nav nav-tabs" role="tablist">
       
     <li class="nav-item">
@@ -139,8 +138,6 @@ button:hover, a:hover {
 
 
 
-
-
   <div class="tab-content">
               <div id="add" class="container tab-pane active"><br>
                         <jsp:include page="AddProductPage.html"/>
@@ -148,13 +145,13 @@ button:hover, a:hover {
               
               
              <div id="products" class="container tab-pane fade"><br>
-              	 		<jsp:include page="ProductPage.html"/>
+              	 		<jsp:include page="ProductPage.jsp"/>
              </div>
              
              
              <div id="vendors" class="container tab-pane fade"><br>
                     <h3>Vendors</h3>
-                    <p>Ut enim ad minim veniam, hgjjk</p>
+                    <p></p>
              </div>
     </div>
 
