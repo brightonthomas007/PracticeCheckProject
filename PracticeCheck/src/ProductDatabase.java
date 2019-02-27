@@ -1,9 +1,9 @@
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.*;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;  
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;  
 import javax.servlet.http.HttpServlet;  
 import javax.servlet.http.HttpServletRequest;  
@@ -25,12 +25,7 @@ public class ProductDatabase extends HttpServlet {
 		
 		 response.setContentType("text/html");  
 		 
-		 PrintWriter out=response.getWriter();  
-		
-		 String temp=request.getParameter("Brand");
-		 
-		 out.print(temp);
-          
+
 		try{  
 			Class.forName("com.mysql.jdbc.Driver");  
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/PracticeCheck","root","password-1");
@@ -69,8 +64,8 @@ public class ProductDatabase extends HttpServlet {
 			}  
 		
 		
-			//RequestDispatcher rd=request.getRequestDispatcher("/AddProduct.jsp");
-			// rd.include(request, response);
+			RequestDispatcher rd=request.getRequestDispatcher("/AddProduct.jsp");
+			rd.include(request, response);
 			 
 			}  
 

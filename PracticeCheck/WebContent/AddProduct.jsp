@@ -118,7 +118,7 @@ button:hover, a:hover {
       </div>
     </div>
     
-    <div class="col-md-7 card abc" >
+    <div class="col-md-9 card abc" style="height:70vh;" >
       <ul class="nav nav-tabs" role="tablist">
       
     <li class="nav-item">

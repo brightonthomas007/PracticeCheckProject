@@ -1,3 +1,27 @@
+
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%
+String id = request.getParameter("userid");
+String driver = "com.mysql.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://localhost:3306/";
+String database = "PracticeCheck";
+String userid = "root";
+String password = "password-1";
+try {
+Class.forName(driver);
+} catch (ClassNotFoundException e) {
+e.printStackTrace();
+}
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,15 +52,14 @@ input {
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false"
-				style="border-radius: 20px; margin-top: 10px; background-color: #E6E6E6; width: 200px; color: #F3F3F3;">
+				style="border-radius: 20px; margin-top: 10px; background-color: #E6E6E6; width: 100px; color: #F3F3F3;">
 					Filter by reference </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div></li>
+					<a class="dropdown-item" href="#">Name</a> <a
+						class="dropdown-item" href="#">Rating</a> <a
+						class="dropdown-item" href="#">Brand</a>
+				</div>
+			</li>
 
 			<li class="nav-item"><input class="form-control mr-sm-2"
 				type="search" placeholder="Category Name" aria-label="Search"
@@ -45,15 +68,16 @@ input {
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false"
-				style="border-radius: 20px; background-color: #F2F2F2; width: 200px; color: #4E4E4E; margin-top: 10px;">
+				style="border-radius: 20px; background-color: #F2F2F2; width: 100px; color: #4E4E4E; margin-top: 10px;">
 					Sort by </a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="#">Action</a> <a
 						class="dropdown-item" href="#">Another action</a> <a
 						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div></li>
+				
+				</div>
+				</li>
+				
 			<li class="nav-item"><a class="nav-link btn btn-secondary"
 				href="Addproduct.html" role="button"
 				style="border-radius: 20px; width: 150px; margin-top: 10px; background-color: #676767">Add
@@ -74,30 +98,38 @@ input {
 			<tbody>
 				<tr>
 				
-					<td><input type="checkbox" >Trimmer</td>
-					<td>Philips</td>
-					<td>Personal Care</td>
-					<td>4.7</td>
-					<td>1000</td>
+					<%
+			try{
+				connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+				statement=connection.createStatement();
+				String sql ="select * from product";
+				resultSet = statement.executeQuery(sql);
+				while(resultSet.next()){
+										%>
+					<tr>
+			<td><%=resultSet.getString("productId") %></td>
+			<td><%=resultSet.getString("Category") %></td>
+			<td><%=resultSet.getString("Name") %></td>
+			<td><%=resultSet.getString("Description") %></td>
+			<td><%=resultSet.getString("Price") %></td>
+			<td><%=resultSet.getString("Brand") %></td>
+			<td><%=resultSet.getString("rating") %></td>
+			
+			
 					<td>
 						<button class="btn" onclick="location.href='viewproduct.html'">View</button>
 						<button class="btn">Block</button>
 						<button class="btn">Remove</button>
 					</td>
-				</tr>
-				<tr>
-				
-					<td><input type="checkbox" >Trimmer</td>
-					<td>Philips</td>
-					<td>Personal Care</td>
-					<td>4.7</td>
-					<td>1000</td>
-					<td>
-						<button class="btn" onclick="location.href='viewproduct.html'">View</button>
-						<button class="btn">Block</button>
-						<button class="btn">Remove</button>
-					</td>
-				</tr>
+			</tr>
+							<%
+}
+connection.close();
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+					
 				
 				
 								
